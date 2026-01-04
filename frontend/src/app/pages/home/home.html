@@ -1,0 +1,10 @@
+<h1>Home</h1>
+
+<ng-container *ngIf="users$ | async as users; else loading">
+	<app-user [users]="users"></app-user>
+</ng-container>
+
+<ng-template #loading>
+	<p>Caricamento utenti…</p>
+</ng-template>
+
