@@ -1,0 +1,13 @@
+# Spring Boot
+backend/target/
+backend/*.log
+
+# Angular
+frontend/node_modules/
+frontend/dist/
+frontend/.angular/
+frontend/*.log
+
+# OS
+.DS_Store
+Thumbs.db
