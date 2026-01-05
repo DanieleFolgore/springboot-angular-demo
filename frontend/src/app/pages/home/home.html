@@ -1,7 +1,13 @@
 <h1>Home</h1>
 
+<form (ngSubmit)="create(f)" #f="ngForm" class="create-form">
+	<input name="username" [(ngModel)]="newUser.username" placeholder="Username" required />
+	<input name="email" [(ngModel)]="newUser.email" placeholder="Email" required />
+	<button type="submit">Create</button>
+</form>
+
 <ng-container *ngIf="users$ | async as users; else loading">
-	<app-user [users]="users"></app-user>
+	<app-user [users]="users" (edit)="update($event)" (remove)="delete($event)"></app-user>
 </ng-container>
 
 <ng-template #loading>

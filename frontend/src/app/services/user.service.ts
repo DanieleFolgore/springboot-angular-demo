@@ -13,7 +13,7 @@ export class UserService {
     return this.http.get<User[]>(this.api);
   }
 
-  createUser(user: User): Observable<User> {
+  createUser(user: Partial<User>): Observable<User> {
     return this.http.post<User>(this.api, user);
   }
 
