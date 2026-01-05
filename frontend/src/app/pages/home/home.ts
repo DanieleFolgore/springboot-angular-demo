@@ -19,6 +19,23 @@ export class Home {   // ⬅️ DEVE chiamarsi Home
   constructor(private userService: UserService) {
     this.users$ = this.userService.getUsers();
   }
+
+  create(user: Partial<User>): void {
+    const payload: User = { id: 0, username: user.username || '', email: user.email || '' };
+    this.userService.createUser(payload).subscribe(() => this.reload());
+  }
+
+  update(user: User): void {
+    this.userService.updateUser(user.id, user).subscribe(() => this.reload());
+  }
+
+  delete(id: number): void {
+    this.userService.deleteUser(id).subscribe(() => this.reload());
+  }
+
+  private reload(): void {
+    this.users$ = this.userService.getUsers();
+  }
 }
 
 
